@@ -109,7 +109,7 @@ void color_nb_to_color(const Pixels& /*ppm_f*/ ap_seuillage, const Image& image,
 		 for (int j(0); j < image.nbC; ++j)
 		 {
 			 //nb = ppm_f[i][j];
-			 nb = ap_seuillage[i][j];
+			 nb = ap_seuillage[i][j] ;
 			 //cout << nb << endl;
 			 ppm_color[i][c] = image.pixel_tab[nb][0];
 			 ppm_color[i][c+1] = image.pixel_tab[nb][1];

@@ -43,7 +43,14 @@ void seuillage(/*Intensite& in,*/ const Image& image, Pixels& ap_seuillage)				/
 	for (int i(0); i < image.nbL ; ++i) {
 		for (int j(0); j < image.nbC ; j+= 1) {
 			for (int m(1); m <= (image.nbR); ++m) {
-				if ((image.seuils[m-1] <= in[i][j]) and (image.seuils[m] > in[i][j])){
+				/*if (in[i][j] == 0 ){
+					ap_seuillage[i][j] = 0;
+				} else*/ 
+				if (m == image.nbR) {
+					if ((image.seuils[m-1] <= in[i][j]) and (image.seuils[m] >= in[i][j])){
+						ap_seuillage[i][j] = m;
+					}
+				}else if ((image.seuils[m-1] <= in[i][j]) and (image.seuils[m] > in[i][j])){
 					ap_seuillage[i][j] = m;
 					//cout << ap_seuillage[i][j] << "	";
 				} else {
